@@ -1,0 +1,16 @@
+* {
+    font-family: Raleway;
+    font-size: 13px;
+}
+
+input:not(input[type=submit]) {
+    padding: 10px !important;
+}
+
+input {
+    border-radius: 0 !important;
+}
+
+.widthForm{
+    width: 320px;
+}
