@@ -23,10 +23,11 @@
 
             <label class="me-2" for="">Vous avez pas de compte?</label>
 
-            <a class="fw-bold text-decoration-none text-dark " href="">Creer un compte</a>
+            <a class="fw-bold text-decoration-none text-dark " href="{{ route('register') }}">Creer un compte</a>
 
         </form>
 
     </div>
 
 @endsection
+

@@ -25,7 +25,7 @@
 
             <label class="me-2" for="">A déjà un compte ?</label>
 
-            <a class="fw-bold text-decoration-none text-dark " href="">Se connecter</a>
+            <a class="fw-bold text-decoration-none text-dark " href="{{ route('login') }}">Se connecter</a>
 
         </form>
 

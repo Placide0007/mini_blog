@@ -25,6 +25,6 @@ class RegisterController extends Controller
 
         FacadesAuth::login($user);
 
-        return view('welcome');
+        return redirect()->route('login');
     }
 }
