@@ -6,7 +6,7 @@ use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::middleware('guest')->group(function(){
@@ -19,5 +19,6 @@ Route::middleware('guest')->group(function(){
 
 Route::middleware('auth')->group(function(){
     Route::resource('posts',PostController::class);
+    Route::get('/logout',action: [LoginController::class,'logout'])->name('logout');
 });
 

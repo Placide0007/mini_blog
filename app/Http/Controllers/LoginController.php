@@ -20,12 +20,24 @@ class LoginController extends Controller
        if(Auth::attempt($credentials))
        {
             $loginRequest->session()->regenerate();
-            return view('welcome');
+            return redirect()->route('posts.index');
        }
 
        return back()->withErrors([
             'email' => 'verifier les information saisie',
        ])->withInput();
+
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login');
 
     }
 }

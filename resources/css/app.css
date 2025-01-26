@@ -7,10 +7,36 @@ input:not(input[type=submit]) {
     padding: 10px !important;
 }
 
-input {
+input , a {
     border-radius: 0 !important;
 }
 
 .widthForm{
     width: 320px;
+}
+
+.hover:hover{
+    background-color: rgba(211, 211, 211, 0.308);
+}
+
+.left , .right{
+    top: 35px;
+    bottom: 0;
+}
+
+.center{
+    overflow-y: auto;
+}
+
+.left{
+    position:fixed;
+    left: 0;
+    width: 25%;
+}
+
+.right{
+    position:fixed;
+    right: 0;
+    width: 25%;
+    height: 100vh;
 }

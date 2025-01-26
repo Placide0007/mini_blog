@@ -25,6 +25,6 @@ class RegisterController extends Controller
 
         FacadesAuth::login($user);
 
-        return redirect()->route('login');
+        return redirect()->route('posts.index');
     }
 }
