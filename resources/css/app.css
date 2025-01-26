@@ -29,14 +29,11 @@ input , a {
 }
 
 .left{
-    position:fixed;
+    position:sticky;
     left: 0;
-    width: 25%;
 }
 
 .right{
-    position:fixed;
+    position:sticky;
     right: 0;
-    width: 25%;
-    height: 100vh;
 }
