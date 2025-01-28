@@ -49,21 +49,26 @@
       @foreach ($post->comments as $comment)
          <div class="border mt-3 p-3">
             <div class="d-flex justify-content-between align-items-center mb-2">
-               <button class="btn btn-dark">{{ ucwords($comment->user->name) }}</button>
+               <button class="btn btn-dark"> @if (auth()->check() && auth()->user()->id === $comment->user_id)
+                  Vous
+              @else
+                  {{ ucwords($post->user->name) }}
+              @endif</button>
                @if (auth()->check() && auth()->user()->id === $comment->user_id)
                   <form action="{{ route('posts.comments.destroy',['post' => $post->id, 'comment' => $comment->id])}}" method="POST">
                      @method('DELETE')
                      @csrf
-                     <button class="btn btn-secondary">Supprimer</button>
+                     <button class="btn btn-light  figure-caption">Supprimer</button>
                   </form>
                @endif
             </div>
 
+            <!-- Contenu du commentaire -->
+            <p class="lead" >{{ $comment->content }}</p>
+
             <!-- Affichage de la date du commentaire -->
             <h1 class="display-6 figure-caption">{{ $comment->created_at->format('d M Y, H:i') }}</h1>
 
-            <!-- Contenu du commentaire -->
-            <p>{{ $comment->content }}</p>
          </div>
       @endforeach 
 
