@@ -1,4 +1,4 @@
-<header class="navbar navbar-expand-md bg-light navbar-light sticky-top px-5 py-0 border border-bottom">
+<header class="navbar navbar-expand-md bg-light navbar-light sticky-top px-5 py-0 border border-bottom shadow">
 
     <a class="navbar-brand" href="">
         <img src="{{ asset('blog.png') }}" alt="logo" width="25">
@@ -30,12 +30,12 @@
 
         </ul>
 
-        <form action="" method="post">
+        <form  action="" method="post">
 
             @auth
-
-            <div class="dropdown ms-md-5 ms-auto">
-                <a class="px-5 text-primary nav-item nav-link dropdown-toggle fw-bold" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            
+            <div class="dropdown nav-item  nav-link ms-md-5 ms-auto">
+                <a class="text-primary  dropdown-toggle fw-bold" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     {{ Str::upper(substr(auth()->user()->name,0,2)) }}
                 </a>
                 <ul class="dropdown-menu  border">

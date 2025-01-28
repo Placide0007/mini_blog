@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
@@ -20,5 +21,6 @@ Route::middleware('guest')->group(function(){
 Route::middleware('auth')->group(function(){
     Route::resource('posts',PostController::class);
     Route::get('/logout',action: [LoginController::class,'logout'])->name('logout');
+    Route::post('/posts/{post}/comments', [ CommentController::class , 'store'])->name('comments.store');
 });
 

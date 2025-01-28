@@ -7,9 +7,9 @@ input:not(input[type=submit]) {
     padding: 10px !important;
 }
 
-input , a {
-    border-radius: 0 !important;
-}
+/* input , a {
+    border-radius: 1 !important;
+} */
 
 .widthForm{
     width: 320px;
@@ -21,7 +21,8 @@ input , a {
 
 .left , .right{
     top: 35px;
-    bottom: 0;
+    overflow-y:auto ;
+    max-height: 95%;
 }
 
 .center{
@@ -29,11 +30,18 @@ input , a {
 }
 
 .left{
-    position:sticky;
+    position:fixed;
     left: 0;
 }
 
 .right{
-    position:sticky;
+    position:fixed;
     right: 0;
 }
+
+body{
+    overflow-y: scroll;
+}
+
+
+   

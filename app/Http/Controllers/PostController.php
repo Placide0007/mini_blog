@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
+use Hashids\Hashids;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Vinkla\Hashids\Facades\Hashids as FacadesHashids;
 
 class PostController extends Controller
 {
@@ -42,8 +44,7 @@ class PostController extends Controller
             'title' => $postRequest->title,
             'content' => $postRequest->content,
             'user_id' => Auth::id(),
-            'slug' => Str::slug($postRequest->title),
-            'image' => $imgpath ,
+            'image' => $imgpath ?? null ,
         ]);
         return redirect()->route('posts.index');
     }
@@ -51,11 +52,11 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $slug)
+    public function show(string $id)
     {
-        $post = Post::where('slug',$slug)->firstOrFail();
-
-        return view('post.show',compact('post'));
+       
+        $post = Post::with('comments.user')->findOrFail($id);
+        return view('post.show', compact('post'));
     }
 
     /**

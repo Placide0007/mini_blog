@@ -11,7 +11,6 @@ class Post extends Model
         'content',
         'image',
         'user_id',
-        'slug',
     ];
 
     public function user()
@@ -22,11 +21,6 @@ class Post extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class);
-    }
-
-    public function getRouteKeyName():string
-    {
-        return 'slug';
     }
 
 
