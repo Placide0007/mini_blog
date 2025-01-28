@@ -20,7 +20,8 @@ Route::middleware('guest')->group(function(){
 
 Route::middleware('auth')->group(function(){
     Route::resource('posts',PostController::class);
+    Route::resource('posts.comments',CommentController::class);
     Route::get('/logout',action: [LoginController::class,'logout'])->name('logout');
-    Route::post('/posts/{post}/comments', [ CommentController::class , 'store'])->name('comments.store');
+   
 });
 

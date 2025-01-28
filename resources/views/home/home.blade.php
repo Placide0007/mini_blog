@@ -11,7 +11,7 @@
 <section class="row">
 
     <!-- Colonne gauche (visible sur les écrans moyens et grands) -->
-    <div class="d-none d-md-block col-md-3 border p-1 left rounded">
+    <div class="d-none d-md-block col-md-3 border p-1 left rounded bg-white">
         @foreach ($posts as $post)
             <div class="border-bottom my-4 p-2">
                 <h1 class="lead fw-bold">{{ ucwords($post->user->name) }}</h1>
@@ -61,7 +61,7 @@
     </div>
 
     <!-- Colonne droite (visible sur les écrans moyens et grands) -->
-    <div class="d-none d-md-block col-md-3 border p-1 right">
+    <div class="d-none d-md-block col-md-3 border p-1 right bg-white">
         @foreach ($posts as $post)
             <div class="border-bottom my-4 p-2">
                 <h1 class="lead fw-bold">{{ ucwords($post->user->name) }}</h1>

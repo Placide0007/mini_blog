@@ -9,7 +9,12 @@
 @section('content')
 
 <section class="row">
-   <div class="border col-12 col-md-6 offset-md-3 p-3 my-3 overflow-y-scroll">
+   <div class="border col-12 col-md-6 offset-md-3 vh-100 bg-white p-3 my-3 overflow-y-scroll">
+      @if (session('success'))
+         <div class="alert alert-success">
+            {{ session('success') }}
+         </div>
+      @endif
 
       <!-- Affichage du titre et des options pour l'utilisateur connecté -->
       <div class="d-flex justify-content-between align-items-center">
@@ -31,7 +36,7 @@
 
       <!-- Formulaire de commentaire -->
       <div class="mt-3">
-         <form action="{{ route('comments.store', $post) }}" method="post">
+         <form action="{{ route('posts.comments.store',$post->id) }}" method="post">
             @csrf 
             <div class="input-group">
                <input class="form-control" placeholder="Commenter" name="content" type="text">
@@ -46,10 +51,11 @@
             <div class="d-flex justify-content-between align-items-center mb-2">
                <button class="btn btn-dark">{{ ucwords($comment->user->name) }}</button>
                @if (auth()->check() && auth()->user()->id === $comment->user_id)
-                  <div>
-                     <a class="figure-caption me-2 text-decoration-none bg-light p-2 rounded" href="">modifier</a>
-                     <a class="figure-caption text-decoration-none bg-light p-2 rounded" href="">supprimer</a>
-                  </div>
+                  <form action="{{ route('posts.comments.destroy',['post' => $post->id, 'comment' => $comment->id])}}" method="POST">
+                     @method('DELETE')
+                     @csrf
+                     <button class="btn btn-secondary">Supprimer</button>
+                  </form>
                @endif
             </div>
 

@@ -15,7 +15,7 @@
 <body>
     @yield('header')
 
-    <section class="container-fluid">
+    <section class="container-fluid bg-light">
         @yield('content')
     </section>
 

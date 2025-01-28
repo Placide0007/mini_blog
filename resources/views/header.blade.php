@@ -17,39 +17,33 @@
 
             <!-- Liens principaux -->
             <li class="nav-item">
-                <a href="" class="nav-link hover">Accueil</a>
+                <a href="{{ route('posts.index') }}" class="nav-link hover">Accueil</a>
             </li>
             <li class="nav-item ms-md-5">
                 <a href="" class="nav-link hover">A propos</a>
             </li>
-            <li class="nav-item ms-md-5">
-                <a href="" class="nav-link hover">Contact</a>
-            </li>
-            <li class="nav-item ms-md-5">
-                <a href="" class="nav-link hover">Publier un article</a>
+            <li class="nav-item ms-md-5 bg-primary ">
+                <a href="{{ route('posts.create') }}" class="nav-link  text-white {{ request()->routeIs('posts.create') ? 'hover' : '' }}">Publier un article</a>
             </li>
 
-            <!-- section Authentification-->
+            {{-- header authentifier --}}
             @auth
-
             <div class="dropdown ms-md-5">
-                <a class="nav-item nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-item nav-link   border fw-bold px-3 py-2 bg-light rounded" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                     {{ Str::upper(substr(auth()->user()->name, 0, 2)) }}
                 </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                <ul class="dropdown-menu dropdown-menu-end mt-2" aria-labelledby="dropdownMenuLink" style="width: 10px;">
                     <li><a class="dropdown-item" href="#">Mon Profil</a></li>
                     <li><a class="dropdown-item" href="{{ route('logout') }}">Déconnexion</a></li>
                 </ul>
             </div>
-                
             @endauth
 
-            {{-- section non authentifié --}}
-
+            {{-- header non-authentifier --}}
             @guest
             <a href="" class="btn btn-primary ms-md-2 px-4 btn-sm d-none d-md-inline">Connexion</a>
             <a href="" class="btn btn-outline-secondary ms-md-2 px-4 d-none d-md-inline btn-sm">Inscription</a>
-             @endguest
+            @endguest
 
         </ul>
 

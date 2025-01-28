@@ -9,14 +9,69 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
-    public function store(CommentRequest $commentRequest , $postid)
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(CommentRequest $commentRequest, $postid)
+    {
+
         Comment::create([
             'content' => $commentRequest->content,
             'user_id' => Auth::id(),
-            'post_id' => $postid,
+            'post_id' => $postid
         ]);
-
+    
         return redirect()->route('posts.show', $postid);
+    }
+    
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy($post_id, $commentId)
+    {
+        $comment = Comment::where('post_id', $post_id)->findOrFail($commentId);
+        $comment->delete();
+        return redirect()->route('posts.show',$post_id);
     }
 }
