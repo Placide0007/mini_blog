@@ -64,10 +64,10 @@
             </div>
 
             <!-- Contenu du commentaire -->
-            <p class="lead" >{{ $comment->content }}</p>
+            <p class="" >{{ $comment->content }}</p>
 
             <!-- Affichage de la date du commentaire -->
-            <h1 class="display-6 figure-caption">{{ $comment->created_at->format('d M Y, H:i') }}</h1>
+            <h1 class="figure-caption">{{ $comment->created_at->format('d M Y, H:i') }}</h1>
 
          </div>
       @endforeach 

@@ -1,4 +1,4 @@
-<header class="navbar navbar-expand-md bg-light navbar-light sticky-top px-5 py-0 border border-bottom shadow">
+<header class="navbar navbar-expand-md bg-light navbar-light sticky-top px-5 py-2 py-md-0  border border-bottom shadow">
 
     <!-- Logo -->
     <a class="navbar-brand" href="">
@@ -17,13 +17,13 @@
 
             <!-- Liens principaux -->
             <li class="nav-item">
-                <a href="{{ route('posts.index') }}" class="nav-link {{ request()->routeIs('posts.index') ? 'active-link' : 'hover' }}">Accueil</a>
+                <a href="{{ route('posts.index') }}" class="px-3 px-md-2 nav-link {{ request()->routeIs('posts.index') ? 'active-link' : 'hover' }}">Accueil</a>
             </li>
             <li class="nav-item ms-md-5">
                 <a href="" class="nav-link hover">A propos</a>
             </li>
             <li class="nav-item ms-md-5 bg-secondary">
-                <a href="{{ route('posts.create') }}" class="nav-link text-light">Publier un article</a>
+                <a href="{{ route('posts.create') }}" class="nav-link text-light px-3 px-md-2">Publier un article</a>
             </li>
 
             {{-- header authentifier --}}
