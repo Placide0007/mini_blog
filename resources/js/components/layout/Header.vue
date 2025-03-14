@@ -1,5 +1,5 @@
 <template>
-	<header class="navbar navbar-expand-md bg-white border-bottom shadow-sm navbar-white px-3 py-0 sticky-top">
+	<header class="navbar navbar-expand-md bg-white border-bottom shadow-sm navbar-white px-5 py-0 sticky-top">
 		<a href="" class="navbar-brand">
 			<img src="../../assets/multicolor.svg" alt="" width="30">
 		</a>
@@ -19,7 +19,7 @@
 					to="/register">Se deconnecter</router-link>
 			</div>
 			<div v-else>
-				<router-link class="btn  btn-primary mb-3 mb-md-0 " to="/register">Se connecter</router-link>
+				<router-link class="btn  btn-primary mb-3 mb-md-0 " to="/login">Se connecter</router-link>
 			</div>
 		</div>
 	</header>
@@ -33,7 +33,7 @@ const conn = computed(() => {
 	return localStorage.getItem('auth_token') !== null;
 });
 const logout = () => {
-	localStorage.removeItem('auth_token');
+	localStorage.clear();
 	router.push('/login');
 };
 
