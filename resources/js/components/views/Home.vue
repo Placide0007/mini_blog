@@ -1,10 +1,10 @@
 <template>
 	<div class="d-flex flex-column min-vh-100">
 		<!-- Contenu principal -->
-		<div class="row p-5 bg-white flex-grow-1">
-			<div class="col-12 col-md-6 p-5">
+		<div class="row p-md-5 p-0 bg-white flex-grow-1">
+			<div class="col-12 col-md-6 px-5">
 				<h1 class="figure-caption">C'est vous le Hero  <span class="fw-bol text-primary" >[ {{ userData.pseudo }} ]</span> </h1>
-				<h1 class="display-1 fw-bold title">Lorem ipsum dolor, sit amet.</h1>
+				<h1 class="fw-bold title">Lorem ipsum dolor, sit amet.</h1>
 				<h1 class="display-6 text-primary">Recusandae animi deserunt.</h1>
 				<p class="small">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, necessitatibus voluptates?
@@ -17,9 +17,8 @@
 				</div>
 			</div>
 
-			<div class="col-12 col-md-6 d-flex justify-content-center align-items-center flex-column">
-				<img src="../../assets/multicolor.svg" alt="" width="300">
-				<p class="figure-caption mt-3">Lorem ipsum dolor sit amet consectetur.</p>
+			<div class="col-12 col-md-6 d-none d-md-flex justify-content-center align-items-center flex-column shadow">
+				<img src="../../assets/Business deal-rafiki.svg" alt="">
 			</div>
 		</div>
 
@@ -39,6 +38,6 @@ const userData = computed(() => {
 
 <style scoped>
 .title {
-	font-size: 80px !important;
+	font-size: 75px !important;
 }
 </style>

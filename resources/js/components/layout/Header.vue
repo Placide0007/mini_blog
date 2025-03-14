@@ -8,12 +8,10 @@
 		</button>
 		<div class="collapse navbar-collapse" id="links">
 			<ul class="navbar-nav ms-auto me-auto">
-				<router-link class="nav-link nav-item px-3 mb-2 mb-md-0 ms-md-5" active-class="active"
-					to="/">Home</router-link>
-				<router-link class="nav-link nav-item px-3 mb-2 mb-md-0 ms-md-5" active-class="active"
-					to="/forum">Forum</router-link>
-				<router-link class="nav-link nav-item px-3 mb-2 mb-md-0 ms-md-5" active-class="active"
-					to="/about">About</router-link>
+				<router-link class="nav-link nav-item px-3 mb-2 mb-md-0 ms-md-5" active-class="active" to="/">Home</router-link>
+				<router-link class="nav-link nav-item px-3 mb-2 mb-md-0 ms-md-5" active-class="active" to="/forum">Forum</router-link>
+				<router-link class="nav-link nav-item px-3 mb-2 mb-md-0 ms-md-5" active-class="active" to="/about">About</router-link>
+				<router-link v-if="conn" class="nav-link nav-item px-3 mb-2 mb-md-0 ms-md-5" active-class="active" to="/aboutMe" >Mon profile</router-link>
 			</ul>
 			<div v-if="conn" class="btn-group">
 				<button class="btn mb-3 mb-md-0 btn-dark">{{ userData.pseudo }}</button>

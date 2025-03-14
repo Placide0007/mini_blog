@@ -4,6 +4,7 @@ import Register from '../components/views/Register.vue'
 import Login from '../components/views/Login.vue'
 import Forum from '../components/views/Forum.vue'
 import About from '../components/views/About.vue'
+import AboutMe from '../components/views/AboutMe.vue'
 
 const routes = [
     {
@@ -30,6 +31,11 @@ const routes = [
         path:'/about',
         name:'about',
         component:About
+    },
+    {
+        path:'/aboutMe',
+        name:'aboutMe',
+        component:AboutMe
     }
 ];
 
