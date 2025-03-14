@@ -1,0 +1,17 @@
+*{
+    font-family: Raleway;
+    /* font-weight: 300; */
+    font-size: 13.5px;
+}
+
+input{
+    padding: 12px !important;
+}
+
+input:not(input[type=submit]){
+    background-color: rgba(231, 226, 226, 0.199);
+}
+
+.small{
+    font-size:smaller;
+}
