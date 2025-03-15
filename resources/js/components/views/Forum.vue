@@ -1,6 +1,6 @@
 <template>
   <div class="row min-vh-100">
-    <div class="col-md-3 d-flex justify-content-center align-items-center sidebar">
+    <div class="d-none  col-md-3 d-md-flex justify-content-center align-items-center sidebar">
       Encore vide
     </div>
     <div
@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <div class="col-md-3 d-flex justify-content-center align-items-center sidebar">
+    <div class="d-none  col-md-3 d-md-flex justify-content-center align-items-center sidebar">
       Encore vide
     </div>
 
