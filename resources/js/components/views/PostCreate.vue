@@ -41,7 +41,7 @@ const handleImageUpload = (event) => {
 const data = reactive({
   title: "",
   content: "",
-  image: null, // Définir l'image comme null par défaut
+  image: null,
 });
 const errors = reactive({
   title: "",
@@ -50,24 +50,18 @@ const errors = reactive({
 });
 
 const post = () => {
-  // Crée un objet FormData
   const formData = new FormData();
-
-  // Ajouter les données du formulaire à FormData
   formData.append("title", data.title);
   formData.append("content", data.content);
 
-  // Ajouter l'image si elle est présente
   if (data.image) {
     formData.append("image", data.image);
   }
 
-  // Envoyer la requête POST avec FormData
   axios
     .post("http://127.0.0.1:8000/api/posts", formData, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("auth_token")}`,
-        "Content-Type": "multipart/form-data", // Indiquer que les données sont envoyées en multipart/form-data
       },
     })
     .then((response) => {

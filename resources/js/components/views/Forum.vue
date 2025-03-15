@@ -1,9 +1,14 @@
 <template>
-  <div class="row">
-    <div v-for="post in posts" :key="post.id">
-      <div class="col-md-6 offset-md-3 bg-white mb-3 shadow mt-3 rounded">
-        <div class="card">
+  <div class="row min-vh-100">
+    <div class="col-md-3 d-flex justify-content-center align-items-center sidebar">
+      Encore vide
+    </div>
+
+    <div class="col-md-6 mt-3 rounded overflow-y-scroll content">
+      <div v-for="post in posts" :key="post.id">
+        <div class="card mb-3">
           <div class="card-header">
+            <p class="btn btn-dark">{{ post.user.pseudo }}</p>
             <h1 class="lead fw-bold text-primary">{{ post.title }}</h1>
             <p
               style="
@@ -16,27 +21,42 @@
               {{ post.content }}
             </p>
           </div>
-          <img :src="`/storage/${post.image}`" alt="Image du post" class="img-fluid" />
-          <div class="card-body p-3">
-            <p class="fw-bold">{{ post.user.pseudo }}</p>
+          <div v-if="post.image" class="card-body">
+            <img :src="`/storage/${post.image}`" alt="Image du post" class="img-fluid" />
+          </div>
+          <div class="card-footer d-flex justify-content-between align-items-center">
+            <p>10 commentaires</p>
+            <p>60 réactions</p>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="col-md-3 d-flex justify-content-center align-items-center sidebar">
+      Encore vide
+    </div>
+
+    <FooterVue />
   </div>
 </template>
 
 <script setup>
 import axios from "axios";
 import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
+import { useToast } from "vue-toastification";
+import FooterVue from "../layout/Footer.vue";
+
+const toast = useToast();
+const router = useRouter();
 
 const posts = ref([]);
 
-// Fonction pour récupérer les posts
 const fetchPost = () => {
   const token = localStorage.getItem("auth_token");
   if (!token) {
-    alert("Token d'authentification manquant");
+    router.push("/register");
+    toast.error("Inscrivez-vous ici gratuitement pour acceder au Forum");
     return;
   }
 
@@ -55,8 +75,27 @@ const fetchPost = () => {
     });
 };
 
-// Charger les posts lors du montage du composant
 onMounted(() => {
   fetchPost();
 });
 </script>
+
+<style scoped>
+.row.min-vh-100 {
+  min-height: 100vh;
+}
+
+.sidebar {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.content {
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.card {
+  border-radius: 0.375rem;
+}
+</style>

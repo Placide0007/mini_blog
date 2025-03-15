@@ -14,7 +14,7 @@
           class="nav-link nav-item px-3 mb-2 mb-md-0 ms-md-5"
           active-class="active"
           to="/"
-          >Home</router-link
+          >Accueil</router-link
         >
         <router-link
           class="nav-link nav-item px-3 mb-2 mb-md-0 ms-md-5"
@@ -26,7 +26,7 @@
           class="nav-link nav-item px-3 mb-2 mb-md-0 ms-md-5"
           active-class="active"
           to="/about"
-          >About</router-link
+          >A propos</router-link
         >
         <router-link
           v-if="conn"
