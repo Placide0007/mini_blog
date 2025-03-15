@@ -2,7 +2,7 @@
 	<div class="d-flex flex-column min-vh-100">
 		<!-- Contenu principal -->
 		<div class="row p-md-5 py-0  bg-white flex-grow-1">
-			<div class="col-12 col-md-6 px-md-5 py-3 d-flex justify-content-center flex-column border hero">
+			<div class="col-12 col-md-6 px-md-5 py-3 d-flex justify-content-center flex-column hero">
 				<h1 v-if="conn" class="figure-caption">C'est vous le Hero  <span class="fw-bol text-primary" >[ {{  userData.pseudo }} ]</span> </h1>
 				<h1 class="fw-bold title">Lorem ipsum dolor, sit amet.</h1>
 				<h1 class="display-6 text-primary">Recusandae animi deserunt.</h1>
@@ -17,7 +17,7 @@
 				</div>
 			</div>
 
-			<div class="col-12 col-md-6 d-none d-md-flex justify-content-center align-items-center flex-column shadow">
+			<div class="col-12 col-md-6 d-none d-md-flex justify-content-center align-items-center flex-column ">
 				<img src="../../assets/Business deal-rafiki.svg" alt="">
 			</div>
 		</div>

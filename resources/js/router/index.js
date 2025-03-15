@@ -5,6 +5,7 @@ import Login from '../components/views/Login.vue'
 import Forum from '../components/views/Forum.vue'
 import About from '../components/views/About.vue'
 import AboutMe from '../components/views/AboutMe.vue'
+import PostCreate from '../components/views/PostCreate.vue'
 
 const routes = [
     {
@@ -16,6 +17,11 @@ const routes = [
         path:'/forum',
         name:'forum',
         component:Forum
+    },
+    {
+        path:'/postcreate',
+        name:'postCreate',
+        component:PostCreate
     },
     {
         path:'/register',
