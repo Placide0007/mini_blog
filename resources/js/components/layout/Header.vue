@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="links">
       <ul class="navbar-nav ms-auto me-auto">
         <router-link
-          class="nav-link nav-item px-3 mb-2 mb-md-0 ms-md-5"
+          class="nav-link nav-item px-3 mb-2 mt-2 mt-md-0 mb-md-0 ms-md-5"
           active-class="active"
           to="/"
           >Accueil</router-link
