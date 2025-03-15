@@ -6,7 +6,7 @@
     <div class="col-12">
       <div class="row">
         <div class="col-md-6 col-12 text-center text-md-start">
-          <h1 class="fw-bold display-6">hello world</h1>
+          <h1 class="fw-bold display-6">Lorem, ipsum dolor.</h1>
           <p class="small">
             Lorem ipsum, dolor sit amet consectetur adipisicing quos molestias laudantium.
           </p>

@@ -31,9 +31,10 @@ import LabelComponent from "../common/LabelComponent.vue";
 import TextAreaComponent from "../common/TextAreaComponent.vue";
 import axios from "axios";
 import { useRouter } from "vue-router";
+import { useToast } from "vue-toastification";
 
 const router = useRouter();
-
+const toast = useToast();
 const handleImageUpload = (event) => {
   data.image = event.target.files[0];
 };
@@ -66,6 +67,7 @@ const post = () => {
     })
     .then((response) => {
       if (response.data.post) {
+        toast.success("poste Ajouter avec succés");
         router.push("/forum");
       }
     })
@@ -81,7 +83,7 @@ const post = () => {
           ? error.response.data.errors.image[0]
           : "";
       } else {
-        alert("Erreur de post");
+        toast.error("Erreur de creation de poste");
       }
     });
 };

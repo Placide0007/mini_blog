@@ -3,8 +3,13 @@
     <div class="col-md-3 d-flex justify-content-center align-items-center sidebar">
       Encore vide
     </div>
-
-    <div class="col-md-6 mt-3 rounded overflow-y-scroll content">
+    <div
+      v-if="posts.length === 0"
+      class="col-md-6 mt-3 d-flex justify-content-center bg-white p-3 rounded content"
+    >
+      <p>Aucun poste Ajouter</p>
+    </div>
+    <div v-else class="col-md-6 mt-3 rounded overflow-y-scroll content">
       <div v-for="post in posts" :key="post.id">
         <div class="card mb-3">
           <div class="card-header">
@@ -56,7 +61,7 @@ const fetchPost = () => {
   const token = localStorage.getItem("auth_token");
   if (!token) {
     router.push("/register");
-    toast.error("Inscrivez-vous ici gratuitement pour acceder au Forum");
+    toast.info("Inscrivez-vous ici gratuitement pour acceder au Forum");
     return;
   }
 
