@@ -6,6 +6,7 @@ import Forum from '../components/views/Forum.vue'
 import About from '../components/views/About.vue'
 import AboutMe from '../components/views/AboutMe.vue'
 import PostCreate from '../components/views/PostCreate.vue'
+import PostShow from '../components/views/PostShow.vue'
 
 const routes = [
     {
@@ -42,6 +43,12 @@ const routes = [
         path:'/aboutMe',
         name:'aboutMe',
         component:AboutMe
+    },
+    {
+        path:'/posts/:id',
+        name:'postShow',
+        component:PostShow,
+        props:true
     }
 ];
 

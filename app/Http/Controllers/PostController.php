@@ -53,10 +53,14 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show($id) // Recevoir l'ID directement
     {
-        //
+        $post = Post::with('user')->findOrFail($id); // Trouver le post avec l'ID
+        return response()->json([
+            'post' => $post
+        ]);
     }
+
 
     /**
      * Show the form for editing the specified resource.
