@@ -3,8 +3,8 @@
 		<a href="" class="navbar-brand">
 			<img src="../../assets/multicolor.svg" alt="" width="30" />
 		</a>
-		<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#links">
-			<i class="bi bi-list-ul fs-2"></i>
+		<button class="navbar-toggler btn-sm btn" data-bs-toggle="collapse" data-bs-target="#links">
+			<i class="navbar-toggler-icon  fs-2"></i>
 		</button>
 		<div class="collapse navbar-collapse" id="links">
 			<ul class="navbar-nav ms-auto me-auto">
@@ -40,11 +40,11 @@
 				</div>
 				<div class="modal-body">
 					<p class="text-center fw-bold lead ">Se deconnecter de mini_blog ?</p>
-					<div class="d-flex justify-content-between align-items-centter">
+					<div class="d-flex justify-content-evenly align-items-center">
 						<button class="btn btn-primary" data-bs-dismiss="modal"
-							data-bs-target="content" @click="logout">Se deconnecter</button>
+							data-bs-target="content" @click="logout">Oui</button>
 						<button class="btn btn-dark" data-bs-dismiss="modal"
-							data-bs-target="content">Rester Connecter</button>
+							data-bs-target="content">Non</button>
 					</div>
 				</div>
 			</div>
