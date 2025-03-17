@@ -8,20 +8,23 @@
 		</button>
 		<div class="collapse navbar-collapse" id="links">
 			<ul class="navbar-nav ms-auto me-auto">
-				<router-link class="nav-link nav-item px-3 mb-2 mt-2 mt-md-0 mb-md-0 ms-md-5" active-class="active"
-					to="/">Accueil</router-link>
+				<router-link class="nav-link nav-item px-3 mb-2 mt-2 mt-md-0 mb-md-0 ms-md-5"
+					active-class="active" to="/">Accueil</router-link>
 				<router-link class="nav-link nav-item px-3 mb-2 mb-md-0 ms-md-5" active-class="active"
 					to="/forum">Forum</router-link>
-				<router-link class="nav-link nav-item px-3 mb-2 mb-md-0 ms-md-5" active-class="active" to="/about">A
+				<router-link class="nav-link nav-item px-3 mb-2 mb-md-0 ms-md-5" active-class="active"
+					to="/about">A
 					propos</router-link>
-				<router-link v-if="conn" class="nav-link nav-item px-3 mb-2 mb-md-0 ms-md-5" active-class="active"
-					to="/aboutMe">Mon profile</router-link>
-				<router-link v-if="conn" class="nav-link nav-item px-3 mb-2 mb-md-0 ms-md-5 bg-primary text-light"
+				<router-link v-if="conn" class="nav-link nav-item px-3 mb-2 mb-md-0 ms-md-5"
+					active-class="active" to="/aboutMe">Mon profile</router-link>
+				<router-link v-if="conn"
+					class="nav-link nav-item px-3 mb-2 mb-md-0 ms-md-5 bg-primary text-light"
 					active-class="active" to="/postcreate">Creer un poste</router-link>
 			</ul>
 			<div v-if="conn" class="btn-group">
 				<button class="btn mb-3 mb-md-0 btn-dark">{{ userData.pseudo }}</button>
-				<router-link  data-bs-target="content" data-bs-toggle="modal"  class="btn btn-primary mb-3 mb-md-0" @click="logout" to="/login">Se
+				<router-link data-bs-target="#content" data-bs-toggle="modal"
+					class="btn btn-primary mb-3 mb-md-0" to="/login">Se
 					deconnecter</router-link>
 			</div>
 			<div v-else>
@@ -29,18 +32,24 @@
 			</div>
 		</div>
 	</header>
-<div class="modal fade" id="content">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button  data-bs-dismiss="modal" class="btn-close"></button>
-			</div>
-			<div class="modal-body">
-				<button>Se deconnecter</button>
+	<div class="modal fade" id="content">
+		<div class="modal-dialog-centered modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button data-bs-dismiss="modal" class="btn-close"></button>
+				</div>
+				<div class="modal-body">
+					<p class="text-center fw-bold lead ">Se deconnecter de mini_blog ?</p>
+					<div class="d-flex justify-content-between align-items-centter">
+						<button class="btn btn-primary" data-bs-dismiss="modal"
+							data-bs-target="content" @click="logout">Se deconnecter</button>
+						<button class="btn btn-dark" data-bs-dismiss="modal"
+							data-bs-target="content">Rester Connecter</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </template>
 
 
