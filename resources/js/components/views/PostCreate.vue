@@ -2,9 +2,6 @@
   <div class="row">
     <div class="col-md-6 bg-light offset-md-3 mt-5 vh-100 p-5">
       <form @submit.prevent="post" enctype="multipart/form-data">
-        <LabelComponent label="Titre" />
-        <InputComponent type="text" v-model="data.title" class="mb-2" />
-        <div v-if="errors.title" class="text-danger small mb-2">{{ errors.title }}</div>
         <LabelComponent label="Contenu" />
         <TextAreaComponent
           rows="10"
@@ -40,19 +37,17 @@ const handleImageUpload = (event) => {
 };
 
 const data = reactive({
-  title: "",
   content: "",
   image: null,
 });
 const errors = reactive({
-  title: "",
+
   content: "",
   image: "",
 });
 
 const post = () => {
   const formData = new FormData();
-  formData.append("title", data.title);
   formData.append("content", data.content);
 
   if (data.image) {
@@ -73,9 +68,6 @@ const post = () => {
     })
     .catch((error) => {
       if (error.response.data && error.response.data.errors) {
-        errors.title = error.response.data.errors.title
-          ? error.response.data.errors.title[0]
-          : "";
         errors.content = error.response.data.errors.content
           ? error.response.data.errors.content[0]
           : "";

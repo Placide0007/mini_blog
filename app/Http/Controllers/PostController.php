@@ -40,9 +40,7 @@ class PostController extends Controller
         }
         $user_id = Auth::id();
         $post = Post::create([
-            'title' =>$request->title,
             'content' =>$request->content,
-            'slug' => Str::slug($request->title),
             'user_id' => $user_id,
             'image' => $img_path,
         ]);
