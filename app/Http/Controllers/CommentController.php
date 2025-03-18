@@ -13,7 +13,13 @@ class CommentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index() {}
+    public function index(Post $post)
+    {
+        // Retourner les commentaires du post avec les utilisateurs associés
+        $comments = $post->comments()->with('user')->get();
+        return response()->json($comments);
+    }
+
 
     /**
      * Show the form for creating a new resource.

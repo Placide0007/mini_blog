@@ -23,7 +23,7 @@ class StorePostRequest extends FormRequest
     {
         return [
             'content'=>['string','required','max:800'],
-            'image' =>['image','max:8000','mimes:png,jpg']
+            'image' =>['image','max:15000','mimes:png,jpg']
         ];
     }
 }
