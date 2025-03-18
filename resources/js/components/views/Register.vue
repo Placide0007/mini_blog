@@ -1,12 +1,11 @@
 <template>
-  <router-link class="btn btn-primary mt-5" style="position: fixed" to="/"
-    >Retour à la page d'accueil</router-link
-  >
-  <div class="d-flex justify-content-center align-items-center vh-100">
+  <router-link class="btn btn-primary mt-5 " style="position: fixed" to="/"
+    >Retour à la page d'accueil</router-link>
+  <div class="d-flex justify-content-center align-items-center  vh-100">
     <form
       @submit.prevent="register"
       method="post"
-      class="RegisterFormWidth rounded bg-white shadow p-4"
+      class="col-md-3 col-12 rounded bg-white shadow p-4"
     >
       <h1 class="text-center mb-5">Registration</h1>
       <LabelComponent label="Pseudo" />

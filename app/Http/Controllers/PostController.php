@@ -51,9 +51,9 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id) // Recevoir l'ID directement
+    public function show($id)
     {
-        $post = Post::with('user')->findOrFail($id); // Trouver le post avec l'ID
+        $post = Post::with(['user','comments.user'])->findOrFail($id);
         return response()->json([
             'post' => $post
         ]);

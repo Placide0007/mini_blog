@@ -1,9 +1,9 @@
 <template>
 	<div class="d-flex flex-column min-vh-100">
 		<div class="row p-md-1 py-0 bg-white flex-grow-1">
-			<div class="col-12 col-md-6 px-md-5 py-3 d-flex justify-content-center flex-column hero">
+			<div class="col-12 col-md-6 px-md-5  py-3 d-flex justify-content-center flex-column hero">
 				<h1 class="figure-caption">Échange d'informations entre étudiants.</h1>
-				<h1 class="fw-bold title">Partagez vos ressources.</h1>
+				<h1 class="fw-bold title ">Partagez vos ressources.</h1>
 				<h1 class="display-6 text-primary">Apprenez ensemble, grandissez ensemble.</h1>
 				<p class="small">
 					Rejoignez une communauté d'étudiants où vous pouvez poser vos questions, partager des ressources
@@ -40,7 +40,7 @@ const conn = computed(() => {
 
 <style scoped>
 .title {
-	font-size: 75px !important;
+	font-size: 68px !important;
 }
 
 .hero {

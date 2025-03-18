@@ -6,7 +6,7 @@
     <form
       @submit.prevent="login"
       method="post"
-      class="RegisterFormWidth rounded bg-white shadow p-4"
+      class="col-md-3 col-12 rounded bg-white shadow p-4"
     >
       <div v-if="globalError.error" class="text-danger">
         {{ globalError.error }}

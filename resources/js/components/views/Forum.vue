@@ -3,27 +3,25 @@
 		<div class="d-none col-md-3 d-md-flex justify-content-center align-items-center  sidebar">
 			Encore vide
 		</div>
-		<div v-if="posts.length === 0"
-			class="col-md-6 mt-3 d-flex justify-content-center bg-white p-3 rounded content">
-			<p>Aucun poste Ajouter</p>
+		<div v-if="posts.length === 0" class="col-md-6 mt-3 d-flex justify-content-center align-items-center bg-white p-3 rounded content">
+			<div class="spinner-border" role="status">
+				<span class="sr-only"></span>
+			</div>
 		</div>
 		<div v-else class="col-md-6 mt-3 rounded overflow-y-scroll p-3 content bg-white">
 			<div v-for="post in posts" :key="post.id">
-				<router-link @click="openModal(post)" data-bs-toggle="modal"
-					data-bs-target="#modal_content" class="text-decoration-none">
+				<router-link @click="openModal(post)" data-bs-toggle="modal" data-bs-target="#modal_content"
+					class="text-decoration-none">
 					<div class="card mb-3">
 						<div class="card-header">
 							<p class="btn btn-dark">{{ post.user.pseudo }}</p>
-							<p
-								style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">
+							<p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">
 								{{ post.content }}</p>
 						</div>
 						<div v-if="post.image" class="card-body">
-							<img :src="`/storage/${post.image}`" alt="Image du post"
-								class="img-fluid" />
+							<img :src="`/storage/${post.image}`" alt="Image du post" class="img-fluid" />
 						</div>
-						<div
-							class="card-footer d-flex justify-content-between align-items-center">
+						<div class="card-footer d-flex justify-content-between align-items-center">
 							<p>10 commentaires</p>
 							<p>60 réactions</p>
 						</div>
@@ -31,24 +29,20 @@
 				</router-link>
 			</div>
 		</div>
-		
 
-
-		<div class="modal fade " id="modal_content" tabindex="-1" aria-labelledby="modal_contentLabel"
+		<div class="modal modal-lg fade " id="modal_content" tabindex="-1" aria-labelledby="modal_contentLabel"
 			aria-hidden="true">
 			<div class="modal-dialog modal-md">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button class="modal-title btn btn-dark" id="modal_contentLabel">{{
 							selectedPost?.user.pseudo }}</button>
-						<button type="button" class="btn-close" data-bs-dismiss="modal"
-							aria-label="Close"></button>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
 						<p>{{ selectedPost?.content }}</p>
 						<div v-if="selectedPost?.image">
-							<img :src="`/storage/${selectedPost.image}`" alt="Image du post"
-								class="img-fluid"/>
+							<img :src="`/storage/${selectedPost.image}`" alt="Image du post" class="img-fluid" />
 						</div>
 					</div>
 					<div class="modal-footer d-flex justify-content-between">

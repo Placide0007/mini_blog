@@ -6,7 +6,7 @@
 				<h1 class="fw-bold title">Une plateforme dédiée à l'échange d'informations et à la collaboration</h1>
 				<h1 class="display-6 text-primary">Forum interactif et partage de fichiers pour les étudiants</h1>
 				<p class="small">
-					Bienvenue sur notre plateforme, un espace conçu pour aider les étudiants à échanger des
+					Bienvenue sur ce plateforme, un espace conçu pour aider les étudiants à échanger des
 					connaissances, partager des ressources et collaborer efficacement. Que vous soyez à la recherche
 					d'aide pour un
 					projet, des conseils d'étude ou des ressources complémentaires, vous trouverez ici tout ce dont vous
@@ -14,7 +14,7 @@
 					besoin.
 				</p>
 				<p class="small">
-					Nous croyons que l'apprentissage ne doit pas se limiter à une salle de classe. C'est pourquoi notre
+					Nous croyons que l'apprentissage ne doit pas se limiter à une salle de classe. C'est pourquoi ce
 					plateforme
 					met l'accent sur les échanges entre étudiants pour renforcer la compréhension des sujets, faciliter
 					les révisions
@@ -22,7 +22,7 @@
 				</p>
 				<h3 class="fw-bold">Forum de discussion : Partagez et apprenez ensemble</h3>
 				<p class="small">
-					Le forum est l'un des éléments clés de notre plateforme. Il permet aux étudiants de poser des
+					Le forum est l'un des éléments clés de ce plateforme. Il permet aux étudiants de poser des
 					questions,
 					discuter de sujets académiques, partager des ressources et même collaborer sur des projets. Vous
 					pouvez trouver
@@ -33,7 +33,7 @@
 				</p>
 				<h3 class="fw-bold">Échange de fichiers : Accédez à des ressources utiles</h3>
 				<p class="small">
-					L'échange de fichiers est au cœur de notre plateforme. Vous pouvez facilement télécharger et
+					L'échange de fichiers est au cœur de ce plateforme. Vous pouvez facilement télécharger et
 					partager des fichiers
 					tels que des documents de cours, des présentations, des résumés, des devoirs et des guides d'étude.
 					Ces ressources
@@ -48,15 +48,15 @@
 					peut être un atout
 					précieux pour vos camarades.
 				</p>
-				<h3 class="fw-bold">Avantages de notre plateforme</h3>
+				<h3 class="fw-bold">Avantages de ce plateforme</h3>
 				<p class="small">
-					- **Accès à une communauté dynamique** : Des étudiants de différentes spécialités et niveaux sont
+					- Accès à une communauté dynamique** : Des étudiants de différentes spécialités et niveaux sont
 					présents pour échanger.
-					- **Collaboration sans frontières** : Partagez vos idées, vos ressources et travaillez ensemble, peu
+					- Collaboration sans frontières** : Partagez vos idées, vos ressources et travaillez ensemble, peu
 					importe où vous êtes.
-					- **Apprentissage interactif** : Discutez de sujets en temps réel et obtenez des retours immédiats
+					- Apprentissage interactif** : Discutez de sujets en temps réel et obtenez des retours immédiats
 					sur vos questions ou idées.
-					- **Une base de ressources toujours croissante** : Grâce aux partages de fichiers et à la mise à
+					- Une base de ressources toujours croissante** : Grâce aux partages de fichiers et à la mise à
 					jour constante du forum, vous avez toujours accès à de nouvelles ressources.
 				</p>
 				<h3 class="fw-bold">Pourquoi nous choisir ?</h3>
