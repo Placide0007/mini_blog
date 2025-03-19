@@ -6,7 +6,6 @@ use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -15,72 +14,42 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('user')->latest()->get();
+
+        $posts = Post::with('user', 'comments.user')->latest()->get();
         return response()->json($posts);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(StorePostRequest $request)
     {
-        $img_path = null ;
-        if($request->hasFile('image')){
+        $img_path = null;
+        if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $img_path = $image->store('image','public');
+            $img_path = $image->store('image', 'public');
         }
+
         $user_id = Auth::id();
         $post = Post::create([
-            'content' =>$request->content,
+            'content' => $request->content,
             'user_id' => $user_id,
             'image' => $img_path,
         ]);
         return response()->json([
             'post' => $post
-        ],201);
+        ], 201);
     }
+
     /**
      * Display the specified resource.
      */
     public function show($id)
     {
-        $post = Post::with(['user','comments.user'])->findOrFail($id);
+        $post = Post::with(['user', 'comments.user'])->findOrFail($id);
         return response()->json([
             'post' => $post
         ]);
     }
 
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Post $post)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdatePostRequest $request, Post $post)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Post $post)
-    {
-        //
-    }
 }

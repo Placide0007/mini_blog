@@ -7,74 +7,52 @@ use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Post $post)
+    public function index()
     {
-        // Retourner les commentaires du post avec les utilisateurs associés
-        $comments = $post->comments()->with('user')->get();
-        return response()->json($comments);
+
+        $posts = Post::with('user', 'comments.user')->latest()->get();
+
+        return response()->json($posts);
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(StoreCommentRequest $request, Post $post)
     {
+
+        $userId = Auth::id();
+
+        if (!$userId) {
+            $userId = $this->getAnonymousUserId();
+        }
+
+        // Créer le commentaire
         $comment = Comment::create([
             'comment' => $request->comment,
             'post_id' => $post->id,
-            'user_id' => Auth::id()
+            'user_id' => $userId,
         ]);
+
+
+        $comment->load('user');
 
         return response()->json([
             'comment' => $comment
         ], 201);
     }
 
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Comment $comment)
+    private function getAnonymousUserId()
     {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Comment $comment)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateCommentRequest $request, Comment $comment)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Comment $comment)
-    {
-        //
+        return 0;
     }
 }
