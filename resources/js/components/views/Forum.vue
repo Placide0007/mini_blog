@@ -233,7 +233,7 @@
   }
 
   .bg-main{
-    background-color:#0B192C;
+    /* background-color:#0B192C; */
   }
 
   .content {
