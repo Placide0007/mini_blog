@@ -13,7 +13,7 @@
             class="text-dark text-decoration-none">
             <div class="d-flex justify-content-between">
               <button class="btn btn-sm btn-success mb-3">{{ post.user.pseudo }}</button>
-              <p class="small"> {{ post.user ? moment(post.user.created_at).format('D MMMM YYYY') : '' }}</p>
+              <p class="small"> {{ post.user ? moment(post.user.created_at).format('D MMMM YYYY, H:mm') : '' }}</p>
             </div>
             <p class="bg-white p-3 rounded"
               style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">{{ post.content
@@ -67,12 +67,7 @@
 
 
     <div class="col-md-3 bg-white d-none d-md-flex flex-column justify-content-start align-items-stretch sidebar vh-100">
-      <div v-if="isLoading" class="d-flex justify-content-center align-items-center flex-grow-1">
-        <div class="spinner-border" role="status">
-          <span class="sr-only"></span>
-        </div>
-      </div>
-      <div v-else class="d-flex flex-column w-100 overflow-y-auto">
+      <div class="d-flex flex-column w-100 overflow-y-auto">
         <div class="w-100 p-4">
           <h5>Bienvenue sur notre plateforme</h5>
           <p class="text-muted">Nous espérons que vous avez une excellente expérience !</p>
