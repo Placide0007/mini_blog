@@ -1,5 +1,5 @@
 <template>
-  <router-link class="btn btn-primary mt-5 " style="position: fixed" to="/"
+  <router-link class="btn btn-primary mt-5  " style="position: fixed" to="/"
     >Retour à la page d'accueil</router-link>
   <div class="d-flex justify-content-center align-items-center  vh-100">
     <form
@@ -7,7 +7,7 @@
       method="post"
       class="col-md-3 col-12 rounded bg-white shadow p-4"
     >
-      <h1 class="text-center mb-5">Registration</h1>
+      <h1 class="text-center mb-4">Registration</h1>
       <LabelComponent label="Pseudo" />
       <InputComponent v-model="data.pseudo" type="text" />
       <div v-if="errors.pseudo" class="text-danger small mb-2">{{ errors.pseudo }}</div>

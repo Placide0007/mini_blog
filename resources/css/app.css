@@ -1,6 +1,6 @@
 *{
     font-family: Raleway;
-    /* font-weight: 300; */
+
     font-size: 13.5px;
 }
 
@@ -13,5 +13,5 @@ input:not(input[type=submit]){
 }
 
 .small{
-    font-size:smaller;
+    font-size:x-small !important;
 }
