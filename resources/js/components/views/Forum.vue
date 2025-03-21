@@ -1,7 +1,7 @@
 <template>
   <div class="row min-vh-100">
-
-    <div class="col-md-3 bg-white d-none d-md-flex flex-column justify-content-start align-items-stretch sidebar vh-100">
+    <div
+      class="col-md-3 bg-white d-none d-md-flex flex-column justify-content-start align-items-stretch sidebar vh-100">
       <div v-if="isLoading" class="d-flex justify-content-center align-items-center flex-grow-1">
         <div class="spinner-border" role="status">
           <span class="sr-only"></span>
@@ -12,13 +12,13 @@
           <router-link @click="openModal(post)" data-bs-toggle="modal" data-bs-target="#modal_content"
             class="text-dark text-decoration-none">
             <div class="d-flex justify-content-between">
-              <button class="btn btn-sm btn-success mb-3">{{ post.user.pseudo }}</button>
-              <p class="small"> {{ post.user ? moment(post.user.created_at).format('D MMMM YYYY, H:mm') : '' }}</p>
+              <button class="btn btn-sm btn-primary mb-3">{{ post.user.pseudo }}</button>
+              <p class="small"> {{ post.user ? moment(post.created_at).format('D MMMM YYYY, H:mm') : '' }}</p>
             </div>
             <p class="bg-white p-3 rounded"
               style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">{{ post.content
               }}</p>
-            <p class="small border-top pt-1">
+            <p class="small border-top pt-1 fw-bold text-dark">
               {{ post.comments && post.comments.length > 0 ? post.comments.length + ' commentaire' +
                 (post.comments.length > 1 ? 's' : '') : '0 commentaire' }}
             </p>
@@ -27,14 +27,14 @@
       </div>
     </div>
 
-
-    <div v-if="posts.length === 0" class="col-md-6 mt-3 d-flex justify-content-center align-items-center bg-white p-3 rounded content">
+    <div v-if="posts.length === 0"
+      class="col-md-6 mt-3 d-flex justify-content-center align-items-center bg-white p-3 rounded content">
       <div class="spinner-border" role="status">
         <span class="sr-only"></span>
       </div>
     </div>
 
-    <div v-else class="col-md-6 mt-3 rounded overflow-y-scroll p-md-5 p-3 content bg-main">
+    <div v-else class="col-md-6 mt-3 rounded overflow-y-scroll p-0 content bg-main">
       <div v-for="post in posts" :key="post.id">
         <router-link @click="openModal(post)" data-bs-toggle="modal" data-bs-target="#modal_content"
           class="text-decoration-none">
@@ -43,7 +43,7 @@
               <div class="d-flex justify-content-between p-2">
                 <button class="btn btn-dark">{{ post.user ? post.user.pseudo : 'Utilisateur inconnu' }}</button>
                 <p class="figure-caption small">
-                  {{ post.user ? moment(post.user.created_at).format('D MMMM YYYY, H:mm') : '' }}
+                  {{ post.user ? moment(post.created_at).format('D MMMM YYYY, H:mm') : '' }}
                 </p>
               </div>
               <p class="bg-white p-3 rounded mx-2 lead"
@@ -55,7 +55,7 @@
               <img :src="`/storage/${post.image}`" alt="Image du post" class="img-fluid" />
             </div>
             <div class="card-footer">
-              <p class="pt-1">
+              <p class="pt-1 text-primary">
                 {{ post.comments && post.comments.length > 0 ? post.comments.length + ' commentaire' +
                   (post.comments.length > 1 ? 's' : '') : '0 commentaire' }}
               </p>
@@ -66,7 +66,8 @@
     </div>
 
 
-    <div class="col-md-3 bg-white d-none d-md-flex flex-column justify-content-start align-items-stretch sidebar vh-100">
+    <div
+      class="col-md-3 bg-white d-none d-md-flex flex-column justify-content-start align-items-stretch sidebar vh-100">
       <div class="d-flex flex-column w-100 overflow-y-auto">
         <div class="w-100 p-4">
           <h5>Bienvenue sur notre plateforme</h5>
@@ -75,13 +76,19 @@
           <h6>Nous suivre</h6>
           <ul class="list-unstyled">
             <li>
-              <a href="https://facebook.com" target="_blank" class="text-decoration-none">Facebook</a>
+              <a href="https://facebook.com" target="_blank" class="text-decoration-none text-dark">
+                <i class="bi bi-facebook me-3"></i> Facebook
+              </a>
             </li>
             <li>
-              <a href="https://twitter.com" target="_blank" class="text-decoration-none">Twitter</a>
+              <a href="https://twitter.com" target="_blank" class="text-decoration-none text-dark">
+                <i class="bi bi-twitter  me-3"></i> Twitter
+              </a>
             </li>
             <li>
-              <a href="https://github.com" target="_blank" class="text-decoration-none">Github</a>
+              <a href="https://github.com" target="_blank" class="text-decoration-none text-dark">
+                <i class="bi bi-github  me-3"></i> GitHub
+              </a>
             </li>
           </ul>
         </div>
@@ -89,7 +96,9 @@
     </div>
 
 
-    <div class="modal modal-lg fade" id="modal_content" tabindex="-1" aria-labelledby="modal_contentLabel" aria-hidden="true">
+
+    <div class="modal modal-lg fade" id="modal_content" tabindex="-1" aria-labelledby="modal_contentLabel"
+      aria-hidden="true">
       <div class="modal-dialog modal-md">
         <div class="modal-content">
           <div class="modal-header">
@@ -99,8 +108,8 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p class="lead">{{ selectedPost?.content }}</p>
-            <div v-if="selectedPost?.image">
+            <p>{{ selectedPost?.content }}</p>
+            <div class="bg-dark" v-if="selectedPost?.image">
               <img :src="`/storage/${selectedPost.image}`" alt="Image du post" class="img-fluid" />
             </div>
             <div style="height:180px;" v-if="selectedPost?.comments && selectedPost.comments.length > 0"
@@ -108,9 +117,9 @@
               <div>
                 <div class="p-2" v-for="(comment, index) in displayedComments" :key="comment.id">
                   <button class="btn btn-sm btn-dark mb-2">{{ comment.user.pseudo }}</button>
-                  <div class="bg-light p-2">
-                    <p class="lead">{{ comment.comment }}</p>
-                    <p class="small">{{ moment(comment.created_at).format('D MMMM YYYY') }}</p>
+                  <div class="bg-light py-1 px-2">
+                    <p>{{ comment.comment }}</p>
+                    <p class="small">{{ moment(comment.created_at).format('D MMMM YYYY, H:mm') }}</p>
                   </div>
                 </div>
               </div>
@@ -232,10 +241,6 @@
     overflow-y: auto;
   }
 
-  .bg-main{
-    /* background-color:#0B192C; */
-  }
-
   .content {
     overflow-y: auto;
     height: 100vh;
@@ -259,11 +264,19 @@
     color: #0056b3;
   }
 
-  .card-body img,
+  .card-body img {
+    width: 100%;
+    height: 100%;
+    max-height: 750px;
+    object-fit: cover;
+    object-position: center;
+  }
+
   .modal-body img {
     width: 100%;
-    height: 500px;
-    object-fit:cover;
+    height: auto;
+    max-height: 550px;
+    object-fit: contain;
     object-position: center;
   }
 </style>

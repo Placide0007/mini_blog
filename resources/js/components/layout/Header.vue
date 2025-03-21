@@ -20,7 +20,7 @@
 					active-class="active" to="/postcreate">Creer un poste</router-link>
 			</ul>
 			<div v-if="conn" class="btn-group">
-				<button class="btn mb-3 mb-md-0 btn-dark">{{ userData.pseudo }}</button>
+				<router-link to="/aboutMe" class="btn mb-3 mb-md-0 btn-dark">{{ userData.pseudo }}</router-link>
 				<router-link data-bs-target="#content" data-bs-toggle="modal" class="btn btn-primary mb-3 mb-md-0"
 					to="/login">Se
 					deconnecter</router-link>
@@ -50,38 +50,33 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import { useRouter } from "vue-router";
-const router = useRouter();
+	import { computed } from "vue";
+	import { useRouter } from "vue-router";
+	const router = useRouter();
 
-// Vérifier si l'utilisateur est connecté
-const conn = computed(() => {
-	return localStorage.getItem("auth_token") !== null;
-});
+	const conn = computed(() => {
+		return localStorage.getItem("auth_token") !== null;
+	});
 
-// Fonction de déconnexion
-const logout = () => {
-	// Supprimer le jeton d'authentification (auth_token) et les données utilisateur
-	localStorage.removeItem("auth_token");
-	localStorage.removeItem("user_data");
+	// Fonction de déconnexion
+	const logout = () => {
+		localStorage.removeItem("auth_token");
+		localStorage.removeItem("user_data");
+		router.push("/login");
+	};
 
-	// Rediriger l'utilisateur vers la page de login
-	router.push("/login");
-};
-
-// Récupérer les données de l'utilisateur depuis le localStorage
-const userData = computed(() => {
-	const user = localStorage.getItem("user_data");
-	return user ? JSON.parse(user) : {};
-});
+	const userData = computed(() => {
+		const user = localStorage.getItem("user_data");
+		return user ? JSON.parse(user) : {};
+	});
 </script>
 
 <style scoped>
-.active {
-	background-color: #80808025;
-}
+	.active {
+		background-color: #80808025;
+	}
 
-.nav-link:hover {
-	background-color: #80808025;
-}
+	.nav-link:hover {
+		background-color: #80808025;
+	}
 </style>
